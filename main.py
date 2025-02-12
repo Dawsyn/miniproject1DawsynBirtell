@@ -8,10 +8,30 @@ I understand that failing to comply with this integrity statement may result in 
 By signing this statement, I acknowledge my commitment to upholding the principles of academic integrity.
 '''
 
+import yfinance as yf
+import pprint
+
+tickers = ["TSLA", "AAPL", "NVDA", "GOOGL", "AMZN", "NFLX"]
+tickers.sort()
+
+data = {}
+
+#get all stock info
+for ticker in tickers:
+    stock = yf.Ticker(ticker)
+    data[ticker] = {'ticker': ticker,
+                    'dayHigh': stock.info['dayHigh'],
+                    'dayLow': stock.info['dayLow'],
+                    'close': stock.info['previousClose'],
+                    'marketCap': stock.info['marketCap']}
+    #print(f"Ticker: {ticker} \nDailey High: {stock.info['dayHigh']} \nDailey Low: {stock.info['dayLow']} \nMarket Cap: {stock.info['marketCap']}")
+#pprint.pprint(msft.info)
+
+#get historical market data
+#hist = aapl.history(period="10d")
+
+pprint.pprint(data)
 
 
-
-a = "string"
-print(a)
 
 
