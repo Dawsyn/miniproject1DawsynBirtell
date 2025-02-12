@@ -10,28 +10,41 @@ By signing this statement, I acknowledge my commitment to upholding the principl
 
 import yfinance as yf
 import pprint
+import numpy as np
+import matplotlib.pyplot as plt
 
 tickers = ["TSLA", "AAPL", "NVDA", "GOOGL", "AMZN", "NFLX"]
-tickers.sort()
 
 data = {}
+
 
 #get all stock info
 for ticker in tickers:
     stock = yf.Ticker(ticker)
-    data[ticker] = {'ticker': ticker,
+    hist = stock.history(period="10d")
+    last10Days = []
+    for date in hist['Close'][:11]:
+        last10Days.append(date)
+    if(len(last10Days) == 10):
+        max_price = np.max(last10Days) + (np.max(last10Days) * 0.05)
+        min_price = np.min(last10Days) - (np.min(last10Days) * 0.05)
+        arr = np.array(last10Days)
+        plt.plot(arr)
+        plt.xlabel('Days Ago')
+        plt.axis([1,10,min_price,max_price])
+        plt.ylabel('Closing Price')
+        plt.title(f'{ticker} - Last 10 Days')
+        plt.show()
+    else:
+        print(f"Error: Could not get 10 days of data. Only have {len(last10Days)} days.")
+
+
+
+"""     data[ticker] = {'ticker': ticker,
                     'dayHigh': stock.info['dayHigh'],
                     'dayLow': stock.info['dayLow'],
                     'close': stock.info['previousClose'],
-                    'marketCap': stock.info['marketCap']}
-    #print(f"Ticker: {ticker} \nDailey High: {stock.info['dayHigh']} \nDailey Low: {stock.info['dayLow']} \nMarket Cap: {stock.info['marketCap']}")
-#pprint.pprint(msft.info)
-
-#get historical market data
-#hist = aapl.history(period="10d")
-
-pprint.pprint(data)
-
+                    'marketCap': stock.info['marketCap']} """
 
 
 
