@@ -9,6 +9,9 @@ By signing this statement, I acknowledge my commitment to upholding the principl
 '''
 
 
-import numpy as np
+
+
+a = "string"
+print(a)
 
 
