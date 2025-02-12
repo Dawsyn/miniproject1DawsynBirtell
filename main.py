@@ -12,10 +12,11 @@ import yfinance as yf
 import pprint
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
-tickers = ["TSLA", "AAPL", "NVDA", "GOOGL", "AMZN", "NFLX"]
+tickers = ["TSLA", "AAPL", "NVDA", "GOOGL", "NFLX"]
 
-data = {}
+os.makedirs('charts', exist_ok=True)
 
 
 #get all stock info
