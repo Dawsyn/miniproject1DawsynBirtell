@@ -9,7 +9,6 @@ By signing this statement, I acknowledge my commitment to upholding the principl
 '''
 
 import yfinance as yf
-import pprint
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -38,14 +37,6 @@ for ticker in tickers:
         plt.savefig(f'charts//{ticker}.png')
     else:
         print(f"Error: Could not get 10 days of data. Only have {len(last10Days)} days.")
-
-
-
-"""     data[ticker] = {'ticker': ticker,
-                    'dayHigh': stock.info['dayHigh'],
-                    'dayLow': stock.info['dayLow'],
-                    'close': stock.info['previousClose'],
-                    'marketCap': stock.info['marketCap']} """
 
 
 
