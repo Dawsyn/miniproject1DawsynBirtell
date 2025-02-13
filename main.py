@@ -22,9 +22,11 @@ os.makedirs('charts', exist_ok=True)
 for ticker in tickers:
     stock = yf.Ticker(ticker)
     hist = stock.history(period="11d")
+    #create list of last 10 days closing prices
     last10Days = []
     for date in hist['Close'][:12]:
         last10Days.append(date)
+    #creates charts
     if(len(last10Days) == 11):
         max_price = np.max(last10Days) + (np.max(last10Days) * 0.05)
         min_price = np.min(last10Days) - (np.min(last10Days) * 0.05)
@@ -34,6 +36,7 @@ for ticker in tickers:
         plt.axis([9,0,min_price,max_price])
         plt.ylabel('Closing Price')
         plt.title(f'{ticker} - Last 10 Days')
+        #exports chart to charts folder as .pngs
         plt.savefig(f'charts//{ticker}.png')
     else:
         print(f"Error: Could not get 10 days of data. Only have {len(last10Days)} days.")
