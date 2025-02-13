@@ -26,5 +26,5 @@ Dawsyn Birtell
 
 ## Acknowledgements
 Code Snippets   
-* [yfinance] (https://pypi.org/project/yfinance/)
-* [matplotlib] (https://matplotlib.org/stable/tutorials/pyplot.html)
+* [yfinance](https://pypi.org/project/yfinance/)
+* [matplotlib](https://matplotlib.org/stable/tutorials/pyplot.html)
