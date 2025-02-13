@@ -21,17 +21,17 @@ os.makedirs('charts', exist_ok=True)
 #get all stock info
 for ticker in tickers:
     stock = yf.Ticker(ticker)
-    hist = stock.history(period="10d")
+    hist = stock.history(period="11d")
     last10Days = []
-    for date in hist['Close'][:11]:
+    for date in hist['Close'][:12]:
         last10Days.append(date)
-    if(len(last10Days) == 10):
+    if(len(last10Days) == 11):
         max_price = np.max(last10Days) + (np.max(last10Days) * 0.05)
         min_price = np.min(last10Days) - (np.min(last10Days) * 0.05)
         arr = np.array(last10Days)
         plt.plot(arr)
         plt.xlabel('Days Ago')
-        plt.axis([1,10,min_price,max_price])
+        plt.axis([9,0,min_price,max_price])
         plt.ylabel('Closing Price')
         plt.title(f'{ticker} - Last 10 Days')
         plt.savefig(f'charts//{ticker}.png')
