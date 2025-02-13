@@ -30,6 +30,4 @@ This will create 5 graphs in charts/ for each of the 5 stocks in .png format.
 Dawsyn Birtell
 
 ## Acknowledgements
-
-
-# Inspiration, code snippets, etc.
+Followed mini project part 1 and 2 videos
