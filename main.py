@@ -13,7 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-tickers = ["TSLA", "AAPL", "NVDA", "GOOGL", "NFLX"]
+tickers = ["TSLA", "INTC", "DASH", "INTU", "NFLX"]
 
 os.makedirs('charts', exist_ok=True)
 
