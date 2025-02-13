@@ -28,5 +28,5 @@ Dawsyn Birtell
 Followed mini project part 1 and 2 videos
 
 ### Code Snippets   
-[yfinance] (https://pypi.org/project/yfinance/)
-[matplotlib](https://matplotlib.org/stable/tutorials/pyplot.html)
+* [yfinance] (https://pypi.org/project/yfinance/)
+* [matplotlib] (https://matplotlib.org/stable/tutorials/pyplot.html)
